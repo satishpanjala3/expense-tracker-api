@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/dashboard")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "https://expense-tracker-gamma-rouge.vercel.app")
 public class DashboardController {
 
     private final DashboardService dashboardService;
