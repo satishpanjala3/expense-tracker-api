@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/expenses")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "https://expense-tracker-gamma-rouge.vercel.app")
 public class ExpenseController {
 
     private final ExpenseService expenseService;
