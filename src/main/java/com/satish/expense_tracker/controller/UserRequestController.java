@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/requests")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "https://expense-tracker-gamma-rouge.vercel.app")
 public class UserRequestController {
 
     private final UserRequestService service;
