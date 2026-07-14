@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/accounts")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://expense-tracker-gamma-rouge.vercel.app")
 public class BillingSettingController {
 
     private final BillingSettingService billingSettingService;
