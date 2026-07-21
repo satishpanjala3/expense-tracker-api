@@ -7,11 +7,13 @@ import com.satish.expense_tracker.entity.User;
 import com.satish.expense_tracker.repository.RoomRepository;
 import com.satish.expense_tracker.service.CurrentUserService;
 import com.satish.expense_tracker.service.RoomService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class RoomServiceImpl implements RoomService {
 
     private final RoomRepository roomRepository;

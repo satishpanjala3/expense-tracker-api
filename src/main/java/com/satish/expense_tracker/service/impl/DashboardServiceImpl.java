@@ -6,11 +6,13 @@ import com.satish.expense_tracker.entity.User;
 import com.satish.expense_tracker.repository.RoomRepository;
 import com.satish.expense_tracker.repository.UserRepository;
 import com.satish.expense_tracker.service.DashboardService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class DashboardServiceImpl implements DashboardService {
 
     private final UserRepository userRepository;

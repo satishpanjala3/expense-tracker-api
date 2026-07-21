@@ -8,6 +8,7 @@ import com.satish.expense_tracker.entity.*;
 import com.satish.expense_tracker.repository.ExpenseRepository;
 import com.satish.expense_tracker.repository.UserRepository;
 import com.satish.expense_tracker.service.ExpenseService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class ExpenseServiceImpl implements ExpenseService {
 
     private final ExpenseRepository expenseRepository;
