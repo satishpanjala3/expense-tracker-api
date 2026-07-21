@@ -7,11 +7,13 @@ import com.satish.expense_tracker.entity.User;
 import com.satish.expense_tracker.repository.UserRepository;
 import com.satish.expense_tracker.service.CurrentUserService;
 import com.satish.expense_tracker.service.ProfileService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class ProfileServiceImpl implements ProfileService {
 
