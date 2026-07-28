@@ -17,7 +17,7 @@ VALUES
 'Satish',
 'satishpanjala3@gmail.com',
 '9876543210',
-'$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy',
+'$2a$10$yx3bzH8QcT5DlndRwxOJiu.v/YMx6q5XthD.rWWjWsrRwJN6dmAd2',
 'ADMIN',
 'ACTIVE',
 1,

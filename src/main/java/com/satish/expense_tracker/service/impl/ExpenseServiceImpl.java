@@ -5,6 +5,7 @@ import com.satish.expense_tracker.dto.request.ExpenseRequest;
 import com.satish.expense_tracker.dto.response.ExpenseItemResponse;
 import com.satish.expense_tracker.dto.response.ExpenseResponse;
 import com.satish.expense_tracker.entity.*;
+import com.satish.expense_tracker.repository.ExpenseItemRepository;
 import com.satish.expense_tracker.repository.ExpenseRepository;
 import com.satish.expense_tracker.repository.UserRepository;
 import com.satish.expense_tracker.service.ExpenseService;
@@ -22,7 +23,16 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     private final ExpenseRepository expenseRepository;
 
+    private final ExpenseItemRepository expenseItemRepository;
+
     private final UserRepository userRepository;
+
+    @Override
+    public List<String> getItemNames() {
+
+        return expenseItemRepository.findDistinctItemNames();
+
+    }
 
     @Override
     public ExpenseResponse addExpense(ExpenseRequest request) {
@@ -35,7 +45,8 @@ public class ExpenseServiceImpl implements ExpenseService {
                 .category(request.getCategory())
                 .amount(request.getAmount())
                 .description(request.getDescription())
-                .expenseDate(LocalDate.now())
+                .expenseDate(request.getExpenseDate())
+                .createdOn(LocalDate.now())
                 .status(ExpenseStatus.PENDING)
                 .build();
 
@@ -87,11 +98,16 @@ public class ExpenseServiceImpl implements ExpenseService {
 
         Expense expense = expenseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Expense not found"));
+        
+        if(expense.getAmount().equals(request.getAmount()))
+            expense.setStatus(expense.getStatus());
+        else
+            expense.setStatus(ExpenseStatus.PENDING);
 
         expense.setCategory(request.getCategory());
         expense.setAmount(request.getAmount());
         expense.setDescription(request.getDescription());
-        expense.setStatus(expense.getStatus());
+        expense.setExpenseDate(request.getExpenseDate());
 
         expense.getItems().clear();
 

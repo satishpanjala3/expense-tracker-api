@@ -36,6 +36,9 @@ public class Expense {
     @Column(nullable = false)
     private LocalDate expenseDate;
 
+    @Column(name = "created_on")
+    private LocalDate createdOn;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ExpenseStatus status;

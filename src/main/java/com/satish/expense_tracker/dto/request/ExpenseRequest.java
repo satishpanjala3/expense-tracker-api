@@ -2,6 +2,7 @@ package com.satish.expense_tracker.dto.request;
 
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -16,5 +17,9 @@ public class ExpenseRequest {
     private Long userId;
 
     private List<ExpenseItemRequest> items;
+
+    private LocalDate expenseDate;
+
+    private LocalDate createdOn;
 
 }

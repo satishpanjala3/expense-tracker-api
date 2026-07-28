@@ -9,6 +9,8 @@ public interface ExpenseService {
 
     ExpenseResponse addExpense(ExpenseRequest request);
 
+    List<String> getItemNames();
+
     List<ExpenseResponse> getAllExpenses();
 
     ExpenseResponse getExpenseById(Long id);

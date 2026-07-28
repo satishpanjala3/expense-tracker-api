@@ -18,6 +18,15 @@ public class ExpenseController {
 
     private final ExpenseService expenseService;
 
+    @GetMapping("/item-names")
+    public ResponseEntity<List<String>> getItemNames() {
+
+        return ResponseEntity.ok(
+                expenseService.getItemNames()
+        );
+
+    }
+
     @PostMapping
     public ResponseEntity<ExpenseResponse> addExpense(
             @RequestBody ExpenseRequest request) {
